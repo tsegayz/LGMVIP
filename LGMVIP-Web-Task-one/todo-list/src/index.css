@@ -1,13 +1,127 @@
+* {
+	box-sizing: border-box;
+}
 body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: rgba(206, 197, 197, 0.027);
+	overflow-x: hidden;
+}
+.home {
+  margin: 40px 20em;
+}
+.home h1{
+  font-size: 45px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin-top: 60px;
+}
+.home h4{
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.search-bar {
+	width: 40%;
+	background-color: rgba(223, 223, 223, 0.363);
+	display: flex;
+	align-items: center;
+	border-radius: 20px;
+  padding: 10px 0;
+  padding-left: 20px;
+  margin: 40px 0 7px 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.search-bar input {
+	background: transparent;
+	flex: 1;
+	outline: none;
+	font-size: 18px;
+	border: 0;
+  color: rgb(0, 21, 78);
+}
+::placeholder {
+	color: rgb(255, 255, 255);
+	font-size: 18px;
+  color: rgb(0, 21, 78);
+}
+
+.search-bar button {
+	border: 0;
+	border-radius: 50%;
+	width: 50px;
+	height: 45px;
+	background: transparent;
+	cursor: pointer;
+}
+.home .todo-list h2{
+  margin-top: 50px;
+  font-size: 25px;
+}
+.home .todo-list ul{
+  list-style: none;
+  display: flex;
+  width: 30em;
+  font-size: 20px;
+  color: rgb(102, 102, 102);
+  justify-content: space-between;
+}
+
+.home .sidebar{
+  position: absolute;
+  right: 30em;
+  top: 30px;
+}
+.home .sidebar ul li{
+  position: absolute;
+}
+
+li.selected {
+  color: gold;
+}
+.home .part-two .task-card{
+  margin-top: 40px;
+  width: 35em;
+  border-radius: 30px;
+  padding: 13px;
+  padding-left: 30px;
+	box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.2);
+}
+.home .part-two .task-card h2{ 
+  font-size: 30px;
+}
+.home .part-two .task-card .option-buttons{
+  position: absolute;
+  top: 30em;
+  display: flex;
+  flex-direction: column;
+  right:60.7em ;
+}
+.home .part-two .task-card .option-buttons button{
+  display: flex;
+  background-color: white;
+	box-shadow: 0 10px 20px 5px rgba(95, 95, 95, 0.2);
+  border: none;
+  border: 20px;
+  font-size: 15px;
+  height: 30px;
+  padding:  5px 10px;
+  padding-bottom: 10px;
+  margin-bottom: 7px;
+  border-radius: 8px;
+}
+.home .part-two .task-card .option-buttons span{
+  background-color: white;
+	box-shadow: 0 10px 5px rgba(95, 95, 95, 0.2);
+  border: none;
+  border: 20px;
+  font-size: 15px;
+  height: 30px;
+  padding-top: 6px;
+  padding-left: 18px;
+  padding-bottom: 10px;
+  margin-bottom: 7px;
+  border-radius: 8px;
 }
