@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { RiSearch2Line } from "react-icons/ri";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import {
+	BsBell,
+	BsPlayFill,
+	BsThreeDotsVertical,
+	BsPersonCircle,
+	BsPlus,
+} from "react-icons/bs";
+import { MdClose, MdEmail } from "react-icons/md";
 import { TiTickOutline, TiDelete } from "react-icons/ti";
-
+import Modal from "react-modal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -12,6 +19,11 @@ function Home() {
 	const [selectedDate, setSelectedDate] = useState(new Date()); // Set initial selectedDate as today
 	const [selectedCategory, setSelectedCategory] = useState("Recently");
 	const [selectedTaskIndex, setSelectedTaskIndex] = useState(-1);
+	const [showModal, setShowModal] = useState(false);
+
+	const toggleModal = () => {
+		setShowModal(!showModal);
+	};
 
 	const showButtonsForTask = (index) => {
 		if (selectedTaskIndex === index) {
@@ -26,11 +38,12 @@ function Home() {
 			const newTodo = {
 				task: inputValue,
 				date: selectedDate,
-				done: false, // Initialize done as false for new tasks
+				done: false,
 			};
 			setTodos([...todos, newTodo]);
 			setInputValue("");
 		}
+		toggleModal();
 	};
 
 	const deleteTodo = (index) => {
@@ -61,7 +74,6 @@ function Home() {
 	};
 	const markTaskAsDone = (index) => {
 		if (todos[index]) {
-			// Check if the element at the specified index exists
 			const updatedTodos = [...todos];
 			updatedTodos[index].done = true;
 			setTodos(updatedTodos);
@@ -72,8 +84,7 @@ function Home() {
 		switch (selectedCategory) {
 			case "Recently":
 				const recentAndDoneTasks = recentlyTasks();
-				const doneTasks = todos.filter((todo) => todo.done);
-				return [...recentAndDoneTasks, ...doneTasks];
+				return [...recentAndDoneTasks];
 			case "Today":
 				return todayTasks();
 			case "Upcoming":
@@ -123,7 +134,7 @@ function Home() {
 							style={{
 								position: "absolute",
 								right: "45.6em",
-                marginTop:'10px',
+								marginTop: "10px",
 								fontSize: "23px",
 							}}
 						/>
@@ -149,18 +160,84 @@ function Home() {
 				))}
 			</section>
 			<div className='sidebar'>
-				<input
-					type='text'
-					value={inputValue}
-					onChange={(e) => setInputValue(e.target.value)}
-					placeholder='Add a new todo...'
-				/>
-				<DatePicker
-					selected={selectedDate}
-					onChange={(date) => setSelectedDate(date)}
-					placeholderText='Select a date...'
-				/>
-				<button onClick={addTodo}>Add</button>
+				<div className='user-profile'>
+					<BsPersonCircle style={{ fontSize: "50px" }} />
+					<div className='name'>
+						<h4> Jessica lockwood </h4>
+						<p> UI/UX Designer </p>
+					</div>
+					<div className='icons'>
+						<BsBell style={{ marginRight: "10px" }} />
+						<MdEmail />
+					</div>
+				</div>
+				<div className='timetracker'>
+					<div>
+						<h2> Task Time Tracker </h2>
+						<p> You can start tracking </p>
+					</div>
+					<BsPlayFill
+						style={{
+							backgroundColor: "rgb(238, 179, 29)",
+							padding: "10px",
+							fontSize: "50px",
+							borderRadius: "13px",
+						}}
+					/>
+				</div>
+				<div>
+					<div className='date-container'>
+						<div className='date'>
+							<div className='number'>
+								<p>
+									{new Date().toLocaleString("en-US", {
+										month: "long",
+										day: "numeric",
+										year: "numeric",
+									})}
+								</p>
+								<h2>{selectedCategory}</h2>
+							</div>
+							<button onClick={toggleModal}>
+								
+								<BsPlus style={{ fontSize: "29px" }} /> Add task
+							</button>
+						</div>
+						{getCategoryTasks().map((todo, index) => (
+							<div key={index} className='task-card'>
+								<h2>{todo.task} </h2>
+								<p>Date: {new Date(todo.date).toLocaleDateString()}</p>
+							</div>
+						))}
+					</div>
+					<Modal
+						className='modal'
+						isOpen={showModal}
+						onRequestClose={toggleModal}
+						contentLabel='Add Task Modal'
+					>
+						<button className='close' onClick={toggleModal}>
+							<MdClose />
+						</button>
+						<h3> Add new task </h3>
+						<input
+							type='text'
+							value={inputValue}
+							onChange={(e) => setInputValue(e.target.value)}
+							placeholder='Add a new todo...'
+						/>
+						<h2> Select the date</h2>
+						<DatePicker
+							className="datepicker"
+							selected={selectedDate}
+							onChange={(date) => setSelectedDate(date)}
+							placeholderText='Select a date...'
+						/>
+						<button className='add' onClick={addTodo}>
+							<BsPlus style={{ fontSize: "29px" }} /> Add
+						</button>
+					</Modal>
+				</div>
 			</div>
 		</div>
 	);
