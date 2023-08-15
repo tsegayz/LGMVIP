@@ -95,11 +95,24 @@ function Home() {
 				return [];
 		}
 	};
+	const [filteredPlaces, setFilteredPlaces] = useState([]);
+	const filterHandler = (e) => {
+		const searchWord = e.target.value;
+		const newFilter = todos.filter((item) => {
+			return item.task.toLowerCase().includes(searchWord.toLowerCase());
+		});
+
+		if (searchWord === "") {
+			setFilteredPlaces([]);
+		} else {
+			setFilteredPlaces(newFilter);
+		}
+	};
 
 	return (
 		<div className='home'>
 			<h1> ToDo List </h1>
-			<h4> You have got 3 tasks today </h4>
+			<h4> You have got {todos.length} tasks today </h4>
 			<div className='search-bar'>
 				<button className='search-icon'>
 					<RiSearch2Line
@@ -110,7 +123,21 @@ function Home() {
 					className='input-field'
 					type='text'
 					placeholder='Search your tasks .....'
+					onChange={filterHandler}
 				/>
+				<div>
+					{filteredPlaces.length !== 0 && (
+						<div className='search-results'>
+							{filteredPlaces.map((value) => (
+								<a href='#a' className='search-item' target='' key={value._id}>
+									<div className='result-name'>
+										{value.task} <p> {value.zone} </p>
+									</div>
+								</a>
+							))}
+						</div>
+					)}
+				</div>
 			</div>
 			<section className='todo-list'>
 				<h2> My Tasks </h2>
@@ -178,7 +205,7 @@ function Home() {
 					</div>
 					<BsPlayFill
 						style={{
-							backgroundColor: "rgb(238, 179, 29)",
+							backgroundColor: "rgba(35, 107, 110, 0.548)",
 							padding: "10px",
 							fontSize: "50px",
 							borderRadius: "13px",
@@ -199,7 +226,6 @@ function Home() {
 								<h2>{selectedCategory}</h2>
 							</div>
 							<button onClick={toggleModal}>
-								
 								<BsPlus style={{ fontSize: "29px" }} /> Add task
 							</button>
 						</div>
@@ -228,7 +254,7 @@ function Home() {
 						/>
 						<h2> Select the date</h2>
 						<DatePicker
-							className="datepicker"
+							className='datepicker'
 							selected={selectedDate}
 							onChange={(date) => setSelectedDate(date)}
 							placeholderText='Select a date...'
