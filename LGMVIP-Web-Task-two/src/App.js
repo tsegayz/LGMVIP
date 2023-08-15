@@ -11,11 +11,13 @@ function App() {
 		try {
 			const response = await axios.get("https://reqres.in/api/users?page=1");
 			const usersData = response.data.data;
-			setUsers(usersData);
+			setTimeout(() => {
+				setUsers(usersData);
+				setLoading(false); // Stop loading
+			}, 5000); // 5000 milliseconds = 5 seconds
 		} catch (error) {
 			console.error("Error fetching user data:", error);
-		} finally {
-			setLoading(false); // Stop loading
+			setLoading(false); // Stop loading in case of an error
 		}
 	};
 
@@ -45,33 +47,32 @@ function App() {
 						</li>
 						<li>
 							<span onClick={handleUserClick}>
-								{loading
-									? "Loading..."
-									: showUserCards
-									? "Hide Users"
-									: "Get Users"}
+								{showUserCards ? "Hide Users" : "Get Users"}
 							</span>
 						</li>
 					</ul>
 				</div>
 			</div>
 			<div className='user-card'>
-				{showUserCards && !loading && (
+				{showUserCards && (
 					<div className='user-cards'>
-						<div className='user-grid'>
-							{users.map((user) => (
-								<div key={user.id} className='user-card-item'>
-									<img
-										src={user.avatar}
-										alt={`${user.first_name} ${user.last_name}`}
-									/>
-									<p>
-										Name: {user.first_name} {user.last_name}
-									</p>
-									<p>Email: {user.email}</p>
-								</div>
-							))}
-						</div>
+						{loading && <div className='loading-spinner'></div>}
+						{!loading && (
+							<div className='user-grid'>
+								{users.map((user) => (
+									<div key={user.id} className='user-card-item'>
+										<img
+											src={user.avatar}
+											alt={`${user.first_name} ${user.last_name}`}
+										/>
+										<p>
+											Name: {user.first_name} {user.last_name}
+										</p>
+										<p>Email: {user.email}</p>
+									</div>
+								))}
+							</div>
+						)}
 					</div>
 				)}
 			</div>
