@@ -121,4 +121,95 @@ body {
 	align-items: center;
 }
 
-/* Add more styling as needed */
+/* /////////////////   home   ////////// */
+.home {
+	margin: 80px 300px;
+	display: flex;
+	flex-direction: row;
+}
+.home .leftside {
+	padding-right: 20px;
+	border-right: 1px rgb(230, 230, 230) solid;
+	position: relative;
+}
+.home .leftside::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: -1px;
+	height: 100%;
+	width: 1px;
+	background-color: rgb(245, 245, 245);
+	box-shadow: 5px 0 10px rgba(117, 117, 117, 0.2); /* Add shadow on the left side of the line */
+}
+.home .leftside .lists {
+	display: flex;
+	align-items: center;
+	background-color: rgba(56, 87, 133, 0.329);
+	padding: 0px 30px;
+	border-radius: 10px;
+	margin: 20px 60px;
+}
+.home .leftside .span {
+	text-align: start;
+	display: flex;
+	margin-left: 80px;
+	margin-bottom: 20px;
+}
+.home .leftside .span span {
+	margin-right: 10px;
+	font-size: 80px;
+	text-shadow: 0 0 10px rgba(37, 74, 104, 0.568);
+}
+.home .leftside .span p {
+	width: 25em;
+	margin-top: 20px;
+	font-size: 14px;
+	color: rgb(37, 74, 104);
+	text-shadow: 0 0 10px rgba(37, 74, 104, 0.596);
+}
+.home .leftside .lists span {
+	margin-left: 10px;
+	margin-right: 50px;
+	background-color: rgba(56, 98, 133, 0.226);
+	border-radius: 50%;
+	height: 45px;
+	width: 90px;
+	font-size: 22px;
+	padding-top: 10px;
+}
+.home .leftside .lists .desc {
+	text-align: start;
+	font-size: 13px;
+}
+.home .leftside .lists .desc h3 {
+	margin-bottom: 0;
+}
+.home .leftside .lists .desc p {
+	margin-top: 5px;
+}
+.home .rightside {
+	margin-top: -40px;
+}
+.home .rightside .part-one {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.home .rightside .part-two {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.home .rightside img {
+	margin: 0;
+	width: 650px;
+	height: 200px;
+}
+.home .rightside .conatiner input {
+	font-size: 18px;
+	padding: 10px;
+	border: 1px rgb(235, 235, 235) solid;
+	border-radius: 5px;
+}
