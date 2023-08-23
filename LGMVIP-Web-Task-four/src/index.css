@@ -24,17 +24,13 @@ body {
 	padding: 20px;
 	border-radius: 30px;
 	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-	background: linear-gradient(
-		140deg,
-		#f6fbff44 0%,
-		#0051946b 100%
-	); /* Adjust colors as needed */
+	background: linear-gradient(140deg, #f6fbff44 0%, #0051946b 100%);
 }
 
 .calculator input {
 	width: 300px;
 	padding: 10px;
-	font-size: 30px;
+	font-size: 32px;
 	margin-left: 50px;
 	background-color: transparent;
 	color: white;
@@ -101,5 +97,9 @@ button {
 	height: 100%;
 	color: white;
 }
-
+.result {
+	margin-left: 9em;
+	font-size: 30px;
+	color: white;
+}
 /* Add more styles as needed */
