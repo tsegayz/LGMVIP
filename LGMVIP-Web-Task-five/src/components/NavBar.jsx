@@ -1,5 +1,3 @@
-import React from "react";
-
 const menuItems = [
 	{ text: "Home", link: "/" },
 	{ text: "Announcement", link: "/announcement" },
