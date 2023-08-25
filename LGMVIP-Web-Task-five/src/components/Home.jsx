@@ -63,8 +63,8 @@ function Home() {
 					<div className='part-one'>
 						<BsPersonFill
 							style={{
-                color:'rgb(90, 90, 90)',
-                padding:'5px',
+								color: "rgb(90, 90, 90)",
+								padding: "5px",
 								fontSize: "40px",
 								margin: "10px",
 								backgroundColor: "rgb(235, 235, 235)",
@@ -76,8 +76,8 @@ function Home() {
 					<div className='part-two'>
 						<FaLock
 							style={{
-                color:'rgb(90, 90, 90)',
-                padding:'5px',
+								color: "rgb(90, 90, 90)",
+								padding: "5px",
 								fontSize: "40px",
 								margin: "10px",
 								backgroundColor: "rgb(235, 235, 235)",
@@ -86,6 +86,7 @@ function Home() {
 						/>
 						<input type='passowrd' placeholder='Password' />
 					</div>
+					<button className='login-button'>Login</button>
 				</div>
 			</div>
 		</div>

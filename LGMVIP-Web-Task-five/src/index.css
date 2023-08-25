@@ -140,12 +140,12 @@ body {
 	height: 100%;
 	width: 1px;
 	background-color: rgb(245, 245, 245);
-	box-shadow: 5px 0 10px rgba(117, 117, 117, 0.2); /* Add shadow on the left side of the line */
+	box-shadow: 5px 0 10px rgba(56, 87, 133, 0.623); /* Add shadow on the left side of the line */
 }
 .home .leftside .lists {
 	display: flex;
 	align-items: center;
-	background-color: rgba(56, 87, 133, 0.329);
+	background-color: rgba(168, 188, 218, 0.329);
 	padding: 0px 30px;
 	border-radius: 10px;
 	margin: 20px 60px;
@@ -208,8 +208,19 @@ body {
 	height: 200px;
 }
 .home .rightside .conatiner input {
-	font-size: 18px;
+	font-size: 16px;
 	padding: 10px;
-	border: 1px rgb(235, 235, 235) solid;
+	border: 1px rgb(214, 214, 214) solid;
 	border-radius: 5px;
+}
+.home .rightside .conatiner .login-button {
+    background-color: rgb(56, 87, 133);
+    color: white;
+    border: none;
+    padding: 10px 100px;
+    border-radius: 4px;
+	font-size: 18px;
+	margin-left: 30px;
+	margin-top: 15px;
+    cursor: pointer;
 }

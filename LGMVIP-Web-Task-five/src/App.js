@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./components/Home";
 
 import NavBar from "./components/NavBar";
+import Student from "./components/Student";
 
 function App() {
 
@@ -15,6 +16,11 @@ function App() {
 						<Route exact path='/'>
 							<NavBar />
 							<Home/>
+						</Route>
+					</Switch>
+					<Switch>
+						<Route exact path='/student'>
+							<Student/>
 						</Route>
 					</Switch>
 				</div>
