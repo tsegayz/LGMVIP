@@ -1,9 +1,9 @@
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Home from "./components/Home";
 
+import Home from "./components/Home";
 import NavBar from "./components/NavBar";
+import Registration from "./components/Registration";
 import Student from "./components/Student";
 
 function App() {
@@ -13,14 +13,19 @@ function App() {
 			<Router>
 				<div className='content'>
 					<Switch>
-						<Route exact path='/s'>
+						<Route exact path='/'>
 							<NavBar />
 							<Home/>
 						</Route>
 					</Switch>
 					<Switch>
-						<Route exact path='/'>
+						<Route exact path='/student'>
 							<Student/>
+						</Route>
+					</Switch>
+					<Switch>
+						<Route exact path='/registration'>
+							<Registration/>
 						</Route>
 					</Switch>
 				</div>
