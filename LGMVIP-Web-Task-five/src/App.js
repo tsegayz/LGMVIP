@@ -13,13 +13,13 @@ function App() {
 			<Router>
 				<div className='content'>
 					<Switch>
-						<Route exact path='/'>
+						<Route exact path='/s'>
 							<NavBar />
 							<Home/>
 						</Route>
 					</Switch>
 					<Switch>
-						<Route exact path='/student'>
+						<Route exact path='/'>
 							<Student/>
 						</Route>
 					</Switch>
