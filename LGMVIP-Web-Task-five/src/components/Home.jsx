@@ -1,5 +1,5 @@
 import image from "../lets.png";
-import { BsPersonFill, BsLock, BsFillPeopleFill } from "react-icons/bs";
+import { BsPersonFill, BsFillPeopleFill } from "react-icons/bs";
 import { GiNotebook, GiGraduateCap } from "react-icons/gi";
 import { FaClipboard, FaLock } from "react-icons/fa";
 
